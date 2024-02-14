@@ -9,3 +9,5 @@ transformers
 pydantic
 pytest
 mysql-connector-python
+pyannote.audio
+openai-whisper
