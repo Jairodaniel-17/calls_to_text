@@ -9,4 +9,3 @@ transformers
 pydantic
 pytest
 mysql-connector-python
-request
