@@ -33,11 +33,15 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Tipo de cómputo #"float32" o "float16" si se desea utilizar la aceleración de la GPU o "float32" si se desea utilizar la CPU.
 compute_type = "float32" if device == "cuda" else "float32"
-
+modelo = "small"
 # Transcripción
 print("Descargando el modelo...")
 model = whisperx.load_model(
-    "large-v2", device, language="es", compute_type=compute_type
+    model=modelo,
+    device=device,
+    language="es",
+    compute_type=compute_type,
+    task="transcribe",
 )
 print("¡Modelo descargado con éxito!")
 
@@ -169,8 +173,7 @@ def transcribe_audio(audio: UploadFile = File(...)):
     return segment_and_transcribe_audio("audio.wav")
 
 
-# if __name__ == "__main__":
-
-#     subprocess.run(
-#         ["uvicorn", "app:app", "--host", "localhost", "--port", "7860", "--reload"]
-#     )
+if __name__ == "__main__":
+    subprocess.run(
+        ["uvicorn", "app:app", "--host", "localhost", "--port", "7860", "--reload"]
+    )
