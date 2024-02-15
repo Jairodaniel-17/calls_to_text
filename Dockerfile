@@ -18,8 +18,12 @@ RUN apt-get update && apt-get install -y \
 
 # install ffmpeg
 RUN apt-get install -y ffmpeg
-
-
+#copiar archivos de la carpeta actual a la carpeta de trabajo
+COPY . /app
+#establecer la carpeta de trabajo
+WORKDIR /app
+# instalar requerimientos
+RUN pip install -r requirements.txt
 COPY . .
 
 RUN chmod -R 777 /app

@@ -1,0 +1,13 @@
+pandas
+numpy
+nltk
+moviepy
+pydub
+transformers
+pydantic
+pytest
+whisperx
+fastapi
+uvicorn
+python-dotenv
+python-multipart
