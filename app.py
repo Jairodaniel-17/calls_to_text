@@ -169,8 +169,8 @@ def transcribe_audio(audio: UploadFile = File(...)):
     return segment_and_transcribe_audio("audio.wav")
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    subprocess.run(
-        ["uvicorn", "app:app", "--host", "localhost", "--port", "7860", "--reload"]
-    )
+#     subprocess.run(
+#         ["uvicorn", "app:app", "--host", "localhost", "--port", "7860", "--reload"]
+#     )
