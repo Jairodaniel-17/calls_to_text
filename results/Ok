@@ -1,0 +1,40 @@
+```
+def buscar_clave(diccionario, lista_oraciones):
+    claves_encontradas = []
+    for oracion in lista_oraciones:
+        palabras = oracion.lower().split()  # Convertir la oración en una lista de palabras
+        claves_oracion = set()  # Conjunto temporal para almacenar las claves encontradas en esta oración
+        for palabra in palabras:
+            for clave, valores in diccionario.items():
+                for valor in valores:
+                    if palabra in valor:
+                        claves_oracion.add(clave)  # Agregar la clave encontrada al conjunto
+                        break  # Salir del bucle interno una vez que se encuentra una coincidencia
+        claves_encontradas.extend(claves_oracion)  # Agregar las claves encontradas en esta oración a la lista principal
+    return claves_encontradas
+
+# Diccionario de palabras clave
+diccionario = {
+    "conector_logico": {"conectores", "conector", "conectores", "lógico", "conector lógico"},
+    "termino_tecnico": {"algoritmo", "inteligencia", "artificial", "API"},
+    "categoria": {"tecnología", "ciencia", "informática"},
+    # Agrega más claves y valores según sea necesario
+}
+
+# Lista de oraciones
+lista_oraciones = [
+    "Este es un ejemplo de una oración con un conector lógico.",
+    "Otra oración que contiene un conector HFCH.",
+    "Aquí no hay ninguna palabra clave.",
+    "La inteligencia artificial está revolucionando la tecnología.",
+    "Los algoritmos son fundamentales en la ciencia de la computación.",
+    "API es un término técnico utilizado en informática.",
+    "El análisis de datos es una parte importante de la informática.",
+    # Agrega más oraciones según sea necesario
+]
+
+# Buscar claves en la lista de oraciones
+resultado = buscar_clave(diccionario, lista_oraciones)
+print("Claves encontradas:", resultado)
+
+```
